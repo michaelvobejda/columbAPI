@@ -11,7 +11,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
   templateUrl: 'food.html'
 })
 export class FoodPage {
-  username:string;
+  username:string = 'Michael'
   platesRef: AngularFireList<any>;
   plates: Observable<any[]>;
   needPlate:boolean;
@@ -26,14 +26,14 @@ export class FoodPage {
     //   err => console.error('Cannot find username in native storage.')
     // );
     // console.log('made it here')
-    // this.platesRef = db.list('/plates');
+    this.platesRef = db.list('/plates');
     // // Use snapshotChanges().map() to store the key
-    // this.plates = this.platesRef.snapshotChanges().pipe(
-    //   map(changes => 
-    //     changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-    //   )
-    // );
-    // console.log('also made it here')
+    this.plates = this.platesRef.snapshotChanges().pipe(
+      map(changes => 
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    );
+    console.log('also made it here')
   }
 
   ionViewDidLoad() {
