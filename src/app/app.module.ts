@@ -19,6 +19,7 @@ import { HTTP } from '@ionic-native/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAhXRAW9h0Eb4Xm3Gf4xiEnUhM9A3kBEmU",
@@ -61,7 +62,8 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NativeStorage,
     HTTP,
-    AngularFireDatabase
+    AngularFireDatabase,
+    AngularFirestore
   ]
 })
 export class AppModule {}
