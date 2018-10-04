@@ -13,6 +13,21 @@ import { WelcomePage } from '../pages/welcome/welcome'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { HTTP } from '@ionic-native/http';
+
+// Import the AF2 Module
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyAhXRAW9h0Eb4Xm3Gf4xiEnUhM9A3kBEmU",
+  authDomain: "columbapi-431e5.firebaseapp.com",
+  databaseURL: "https://columbapi-431e5.firebaseio.com",
+  projectId: "columbapi-431e5",
+  storageBucket: "columbapi-431e5.appspot.com",
+  messagingSenderId: "14669114702"
+};
 
 @NgModule({
   declarations: [
@@ -26,7 +41,9 @@ import { NativeStorage } from '@ionic-native/native-storage';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,7 +59,9 @@ import { NativeStorage } from '@ionic-native/native-storage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NativeStorage
+    NativeStorage,
+    HTTP,
+    AngularFireDatabase
   ]
 })
 export class AppModule {}

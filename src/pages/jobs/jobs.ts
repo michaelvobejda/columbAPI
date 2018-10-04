@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { HTTP } from '@ionic-native/http';
+
+
 
 @Component({
   selector: 'page-jobs',
@@ -7,8 +10,13 @@ import { NavController } from 'ionic-angular';
 })
 export class JobsPage {
 
-  constructor(public navCtrl: NavController) {
 
+  constructor(public navCtrl: NavController, private http: HTTP) {}
+
+  ionViewDidLoad() {
   }
+
+  
+  
 
 }

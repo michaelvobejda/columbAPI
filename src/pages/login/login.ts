@@ -14,10 +14,9 @@ export class LoginPage {
   public isVegan: boolean;
   public isGF: boolean;
 
-  constructor(private navCtrl: NavController, private nativeStorage: NativeStorage) {
-  }
+  constructor(private navCtrl: NavController, private nativeStorage: NativeStorage) {}
 
-  ionViewLoaded() {
+  ionViewDidLoad() {
     setTimeout(() => {
       this.nameField.setFocus();
     }, 150);
@@ -35,7 +34,7 @@ export class LoginPage {
           // this.navCtrl.popToRoot();
           // might try this instead
           this.navCtrl.push(TabsPage);
-        }, 2000);
+        }, 1000);
       })
     .catch(error => console.error('Error storing item', error))
   }
