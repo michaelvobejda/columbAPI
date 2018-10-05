@@ -1,7 +1,0 @@
-{
-  "name": "columbAPI",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
