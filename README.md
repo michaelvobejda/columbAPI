@@ -1,15 +1,15 @@
 # ColumbAPI
 
-### Who are you?
+### Who are you?!
 My name is Michael Vobejda! I'm a senior studying Computer Science at Stanford and a member of the wonderful community known as Columbae.
 
-### What is this?
+### What is this?!
 This is an Ionic app I'm building for Columbae as a personal project. I think it will be very useful to my fellow Beans. Plus, I get to learn mobile app development with a brand new technology!
 
-### What are you working on now?
+### What are you working on now?!
 Right now I'm working on getting push notifications working for DAHAs.
 
-### What features do you want to finish before you release a Minimum Viable Product?
+### What features do you want to finish before you release a Minimum Viable Product?!
 Good question!
 - Push Notifications
   - upon creation of a DAHA, to everyone
@@ -18,7 +18,7 @@ Good question!
 - Food Page
   - add custom allergy input on startup and display on Late Plate list
 
-### What features do you want to implement at some point in the future?
+### What features do you want to implement at some point in the future?!
 - Home Page
   - news feed type thing, with static "articles"
 - Settings Page
@@ -28,7 +28,7 @@ Good question!
 - About Page
   - not sure, information about the house/me?
 
-### And after that?
+### And after that?!
 I need to get an Apple developer account, request the app to be added to the App store, and then announce the project to the house! 
 
 
