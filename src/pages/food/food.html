@@ -14,12 +14,14 @@
       </ion-item>
   </ion-list>
 
+
   <!-- Display late plates -->
   <ion-title>Late Plates</ion-title>
   <ion-grid>
       <ion-row class="text" *ngFor="let plate of plates | async">
+        
           <ion-col>
-              {{plate.username}}
+              {{plate.username | json}}
           </ion-col>
           <ion-col>
               <ion-badge *ngIf="plate.isVegan">Vegan</ion-badge>

@@ -3,8 +3,7 @@ import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NativeStorage } from '@ionic-native/native-storage';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 
 
@@ -16,11 +15,11 @@ export class FoodPage {
   username:string = 'Michael'
   isVegan:boolean;
   isGF: boolean;
-  platesRef: AngularFirestore<any>;
-  plates: Observable<any[]>;
+  // platesRef: AngularFireDatabase<any>;
+  plates: AngularFireList<any>;
   needPlate:boolean;
 
-  constructor(public navCtrl: NavController, private nativeStorage: NativeStorage, db: AngularFirestore) {
+  constructor(public navCtrl: NavController, private nativeStorage: NativeStorage, private db: AngularFireDatabase) {
     this.nativeStorage.getItem('username')
     .then(username => {
       this.username = username
@@ -33,7 +32,7 @@ export class FoodPage {
     .then(isGF => {
       this.isGF = isGF;
     })
-    .catch(err => console.error('Food - Error in retrieving values from native storage.'))
+    .catch(err => console.log('Food - Error in retrieving values from native storage.'))
 
     // this.platesRef = db.collection('plates');
     // // Use snapshotChanges().map() to store the key
@@ -42,8 +41,10 @@ export class FoodPage {
     //     changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
     //   )
     // );
-    this.platesRef = db.list('plates')
-    this.plates = this.platesRef.valueChanges()
+    // this.platesRef = db.list('plates')
+    // this.plates = this.db.list('plates').valueChanges();
+    console.log('plates:', this.plates)
+    // console.log('plates ref:', JSON.stringify(this.platesRef))
   }
 
   ionViewDidLoad() {
@@ -51,14 +52,14 @@ export class FoodPage {
 
   changePlate() {
     console.log('changePlate() called! username:', this.username)
-    if (this.needPlate) {
-      this.platesRef.child(this.username).setValue({
-        username: this.username,
-        isVegan: this.isVegan,
-        isGF: this.isGF
-      });
-    } else {
-      this.platesRef.remove(this.username)
-    }
+    // if (this.needPlate) {
+    //   this.platesRef.child(this.username).setValue({
+    //     username: this.username,
+    //     isVegan: this.isVegan,
+    //     isGF: this.isGF
+    //   });
+    // } else {
+    //   this.platesRef.remove(this.username)
+    // }
   }
 }
