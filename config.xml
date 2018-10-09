@@ -87,4 +87,5 @@
     <plugin name="cordova-plugin-nativestorage" spec="^2.3.2" />
     <plugin name="cordova-plugin-advanced-http" spec="^2.0.1" />
     <plugin name="cordova-plugin-firebase" spec="^2.0.3" />
+    <plugin name="phonegap-plugin-push" spec="^2.2.3" />
 </widget>

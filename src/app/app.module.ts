@@ -14,6 +14,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { HTTP } from '@ionic-native/http';
+import { Push } from '@ionic-native/push';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -63,7 +64,8 @@ export const firebaseConfig = {
     NativeStorage,
     HTTP,
     AngularFireDatabase,
-    AngularFirestore
+    AngularFirestore,
+    Push
   ]
 })
 export class AppModule {}

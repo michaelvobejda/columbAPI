@@ -1,17 +1,46 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      DAHA
+        Does Anyone Have A...
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+    <!-- Display DAHAs -->
+    <!-- <ion-title>Does Anyone Have A...</ion-title> -->
+    <!-- <ion-grid>
+        <ion-row class="text" *ngFor="let daha of dahas | async">
+          
+
+            <ion-col>
+                {{daha.daha}}? {{daha.username}} is asking!
+            </ion-col>
+        </ion-row>
+    </ion-grid> -->
+
+    <ion-list>
+        <ion-item>
+            <ion-label ion-text color="primary">Item</ion-label>
+            <ion-label ion-text color="primary">Bean</ion-label>
+        </ion-item>
+        <ion-item-sliding #item *ngFor="let daha of dahas | async">
+          <ion-item>
+            <ion-label>{{daha.daha}}</ion-label>
+            <ion-label>{{daha.username}}</ion-label>
+          </ion-item>
+          <ion-item-options side="left">
+            <button ion-button color="danger" (click)="delete(daha)">Delete</button>
+          </ion-item-options>
+      
+          <ion-item-options side="right">
+            <button ion-button color="secondary" (click)="unread(item)">I have it!</button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+
+    <ion-fab right bottom>
+        <button ion-fab color="secondary" (click)="showPrompt()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+
 </ion-content>
