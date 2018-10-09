@@ -11,8 +11,8 @@ import { WelcomePage } from '../welcome/welcome'
 export class LoginPage {
   @ViewChild('name') nameField: any;
   private username: string;
-  public isVegan: boolean;
-  public isGF: boolean;
+  public isVegan: boolean = false;
+  public isGF: boolean = false;
 
   constructor(private navCtrl: NavController, private nativeStorage: NativeStorage) {}
 
