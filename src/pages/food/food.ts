@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
 import { NativeStorage } from '@ionic-native/native-storage';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from 'angularfire2/firestore';
 
 
 @Component({
@@ -13,53 +14,47 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 })
 export class FoodPage {
   username:string = 'Michael'
-  isVegan:boolean;
-  isGF: boolean;
-  // platesRef: AngularFireDatabase<any>;
-  plates: AngularFireList<any>;
+  isVegan:boolean = true
+  isGF:boolean = true
+
+  platesRef: AngularFirestoreCollection<any>;
+  plates: Observable<any[]>;
   needPlate:boolean;
 
-  constructor(public navCtrl: NavController, private nativeStorage: NativeStorage, private db: AngularFireDatabase) {
-    this.nativeStorage.getItem('username')
-    .then(username => {
-      this.username = username
-      return this.nativeStorage.getItem('isVegan')
-    })
-    .then(isVegan => {
-      this.isVegan = isVegan;
-      return this.nativeStorage.getItem('isGF')
-    })
-    .then(isGF => {
-      this.isGF = isGF;
-    })
-    .catch(err => console.log('Food - Error in retrieving values from native storage.'))
+  constructor(public navCtrl: NavController, private nativeStorage: NativeStorage, private db: AngularFirestore) {
+    // this.nativeStorage.getItem('username')
+    // .then(username => { 
+    //     this.username = username;
+    //     return this.nativeStorage.getItem('isVegan')
+    // })
+    // .then(isVegan => {
+    //   this.isVegan = isVegan
+    //   return this.nativeStorage.getItem('isGF')
+    // })
+    // .then(isGF => {
+    //   this.isGF = isGF
+    // })
+    // .catch(err => {
+    //   console.error(err)
+    // })
 
-    // this.platesRef = db.collection('plates');
-    // // Use snapshotChanges().map() to store the key
-    // this.plates = this.platesRef.snapshotChanges().pipe(
-    //   map(changes => 
-    //     changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-    //   )
-    // );
-    // this.platesRef = db.list('plates')
-    // this.plates = this.db.list('plates').valueChanges();
-    console.log('plates:', this.plates)
-    // console.log('plates ref:', JSON.stringify(this.platesRef))
+    this.platesRef = this.db.collection<any>('plates')
+    this.plates = this.platesRef.valueChanges()
   }
 
   ionViewDidLoad() {
   }
 
-  changePlate() {
-    console.log('changePlate() called! username:', this.username)
-    // if (this.needPlate) {
-    //   this.platesRef.child(this.username).setValue({
-    //     username: this.username,
-    //     isVegan: this.isVegan,
-    //     isGF: this.isGF
-    //   });
-    // } else {
-    //   this.platesRef.remove(this.username)
-    // }
+  plateChanged() {
+    if (this.needPlate) {
+      this.platesRef.doc(this.username)
+      .set({
+        username: this.username,
+        isVegan: this.isVegan,
+        isGF: this.isGF
+      })
+    } else {
+      this.platesRef.doc(this.username).delete()
+    }
   }
 }

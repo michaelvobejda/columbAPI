@@ -6,22 +6,19 @@
 
 <ion-content padding>
 
-  <!-- Need late plate checkbox -->
   <ion-list>
       <ion-item>
         <ion-label>I want a late plate tonight</ion-label>
-        <ion-checkbox [(ngModel)]="needPlate" (ionChange)="changePlate()"></ion-checkbox>
+        <ion-checkbox [(ngModel)]="needPlate" (ionChange)="plateChanged()"></ion-checkbox>
       </ion-item>
   </ion-list>
-
-
+  
   <!-- Display late plates -->
   <ion-title>Late Plates</ion-title>
   <ion-grid>
       <ion-row class="text" *ngFor="let plate of plates | async">
-        
           <ion-col>
-              {{plate.username | json}}
+              {{plate.username}}
           </ion-col>
           <ion-col>
               <ion-badge *ngIf="plate.isVegan">Vegan</ion-badge>
@@ -32,6 +29,4 @@
       </ion-row>
   </ion-grid>
 
-
 </ion-content>
-

@@ -13,6 +13,8 @@ import { WelcomePage } from '../pages/welcome/welcome'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { HTTP } from '@ionic-native/http';
+import { Push } from '@ionic-native/push';
 
 // Import the AF2 Module
 import { AngularFireModule } from '@angular/fire';
@@ -60,7 +62,10 @@ export const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NativeStorage,
-    AngularFireDatabase
+    HTTP,
+    AngularFireDatabase,
+    AngularFirestore,
+    Push
   ]
 })
 export class AppModule {}
