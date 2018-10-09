@@ -20,6 +20,7 @@ import { Push } from '@ionic-native/push';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAhXRAW9h0Eb4Xm3Gf4xiEnUhM9A3kBEmU",

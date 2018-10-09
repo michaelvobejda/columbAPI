@@ -54,7 +54,6 @@ export class DahaPage {
           text: 'Request',
           handler: data => {
             const key = this.username + '-' + data.daha
-            console.log(key)
             this.dahasRef.doc(key).set({
               username: this.username,
               daha: data.daha
