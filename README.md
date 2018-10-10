@@ -32,3 +32,8 @@ Good question!
 I need to get an Apple developer account, request the app to be added to the App store, and then announce the project to the house! 
 
 
+# Stop ranting. How do I run this on my machine?
+- Install node.js
+- `npm install -g ionic cordova typescript`
+
+
