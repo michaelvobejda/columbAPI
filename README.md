@@ -34,6 +34,11 @@ I need to get an Apple developer account, request the app to be added to the App
 
 # Stop ranting. How do I run this on my machine?
 - Install node.js
-- `npm install -g ionic cordova typescript`
+- `git clone https://github.com/michaelvobejda/columbAPI.git`
+- `npm install`
+- `ionic serve -c`
+- Open in DevApp
+- ???
+- Profit
 
 

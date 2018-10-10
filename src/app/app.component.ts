@@ -8,6 +8,10 @@ import { NativeStorage } from '@ionic-native/native-storage';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { FcmProvider } from '../providers/fcm/fcm'
+
+import { ToastController } from 'ionic-angular'
+import { tap } from 'rxjs/operators'
 
 // import { LatePlate } from '../models/'
 
@@ -19,7 +23,13 @@ export class MyApp {
 
   rootPage: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private nativeStorage: NativeStorage) {
+  constructor(
+    platform: Platform, 
+    statusBar: StatusBar, 
+    splashScreen: SplashScreen, 
+    private nativeStorage: NativeStorage,
+    public fcm: FcmProvider, 
+    public toastCntrl: ToastController) {
 
     // Set up mLab database
     // mongoose.connect(MONGO_URL)
@@ -57,6 +67,23 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+  }
+
+  ionViewDidLoad() {
+    
+    // Get a FCM token
+    this.fcm.getToken()
+
+    this.fcm.listenToNotification().pipe(
+      tap(msg => {
+        const toast = this.toastCntrl.create({
+          message: msg.body,
+          duration: 3000
+        })
+        toast.present()
+      })
+    )
+    .subscribe()
   }
 }
 

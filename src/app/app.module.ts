@@ -17,10 +17,14 @@ import { HTTP } from '@ionic-native/http';
 import { Push } from '@ionic-native/push';
 
 // Import the AF2 Module
+import { Firebase } from '@ionic-native/firebase';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { FcmProvider } from '../providers/fcm/fcm';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAhXRAW9h0Eb4Xm3Gf4xiEnUhM9A3kBEmU",
@@ -45,8 +49,9 @@ export const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,7 +71,9 @@ export const firebaseConfig = {
     HTTP,
     AngularFireDatabase,
     AngularFirestore,
-    Push
+    Push,
+    Firebase,
+    FcmProvider
   ]
 })
 export class AppModule {}

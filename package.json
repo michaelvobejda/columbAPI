@@ -18,12 +18,14 @@
     "@angular/compiler": "5.2.11",
     "@angular/compiler-cli": "5.2.11",
     "@angular/core": "5.2.11",
+    "@angular/fire": "^5.0.2",
     "@angular/forms": "5.2.11",
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/core": "~4.12.0",
     "@ionic-native/firebase": "^4.15.0",
+    "@ionic-native/google-plus": "^5.0.0-beta.21",
     "@ionic-native/http": "^4.15.0",
     "@ionic-native/native-storage": "^4.15.0",
     "@ionic-native/push": "^4.15.0",
@@ -36,10 +38,11 @@
     "body-parser": "^1.18.3",
     "cordova-plugin-advanced-http": "^2.0.1",
     "cordova-plugin-firebase": "^2.0.3",
+    "cordova-plugin-googleplus": "^5.3.2",
     "cordova-plugin-ionic": "^5.2.4",
     "cordova-plugin-nativestorage": "^2.3.2",
     "cors": "^2.8.4",
-    "firebase": "^5.5.2",
+    "firebase": "^5.5.3",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "moment": "^2.22.2",
@@ -69,7 +72,11 @@
       "cordova-plugin-nativestorage": {},
       "cordova-plugin-advanced-http": {},
       "cordova-plugin-firebase": {},
-      "phonegap-plugin-push": {}
+      "phonegap-plugin-push": {},
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.14669114702-rbvht71bpdsthvdl8p76lb4v2v5h6tlu",
+        "WEB_APPLICATION_CLIENT_ID": "14669114702-rbvht71bpdsthvdl8p76lb4v2v5h6tlu.apps.googleusercontent.com"
+      }
     }
   }
 }
