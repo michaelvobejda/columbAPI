@@ -14,20 +14,26 @@ import {
   templateUrl: 'daha.html'
 })
 export class DahaPage {
-  username:string = 'Michael'
+  // username:string = 'Michael'
+  username:string;
 
   dahasRef: AngularFirestoreCollection<any>;
   dahas: Observable<any[]>;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private db: AngularFirestore) {
-    // this.nativeStorage.getItem('username')
-    // .then(username => { 
-    //     this.username = username;
-    //     return this.nativeStorage.getItem('isVegan')
-    // })
-    // .catch(err => {
-    //   console.error(err)
-    // })
+  constructor(
+    public navCtrl: NavController, 
+    public alertCtrl: AlertController, 
+    private db: AngularFirestore, 
+    private nativeStorage: NativeStorage) {
+
+    this.nativeStorage.getItem('username')
+    .then(username => { 
+        this.username = username;
+        return this.nativeStorage.getItem('isVegan')
+    })
+    .catch(err => {
+      console.error(err)
+    })
 
     this.dahasRef = this.db.collection<any>('daha')
     this.dahas = this.dahasRef.valueChanges()
@@ -68,6 +74,12 @@ export class DahaPage {
   delete(daha) {
     const key = daha.username + '-' + daha.daha
     this.dahasRef.doc(key).delete()
+  }
+
+  accept(daha) {
+    const key = daha.username + '-' + daha.daha
+    this.dahasRef.doc(key).delete()
+    console.log(this.username + ' has ' + daha.daha + ' for ' + daha.username)
   }
 
 }

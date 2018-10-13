@@ -31,35 +31,18 @@ export class MyApp {
     public fcm: FcmProvider, 
     public toastCntrl: ToastController) {
 
-    // Set up mLab database
-    // mongoose.connect(MONGO_URL)
-    // mongoose.connection.on('open', () => {
-    //   this._DB = mongoose.connection.db
-    //   LatePlate.model.deleteMany({})
-    //   .then(() => {
-    //     LatePlate.model({ name: 'Michael' }).save()
-    //     LatePlate.model({ name: 'Emily' }).save()
-    //     LatePlate.model({ name: 'Ben' }).save()
-    //   })
-    // })
-
-    // mongoose.connection.on('error',  err => {
-    //   if (err) {
-    //       console.log('Failed to connect to database.')
-    //   }
-    // })
 
     // Check if logged in
-    // this.nativeStorage.getItem('username')
-    // .then(
-    //   username => {
-    //     console.log('username:', username)
-    //     this.rootPage = TabsPage
-    //   },
-    //   error => this.rootPage = LoginPage
-    // )
+    this.nativeStorage.getItem('username')
+    .then(
+      username => {
+        console.log('username:', username)
+        this.rootPage = TabsPage
+      },
+      error => this.rootPage = LoginPage
+    )
 
-    this.rootPage = TabsPage
+    // this.rootPage = TabsPage
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
