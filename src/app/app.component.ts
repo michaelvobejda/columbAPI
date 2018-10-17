@@ -29,7 +29,7 @@ export class MyApp {
     splashScreen: SplashScreen, 
     private nativeStorage: NativeStorage,
     public fcm: FcmProvider, 
-    public toastCntrl: ToastController) {
+    public toastCtrl: ToastController) {
 
 
     // Check if logged in
@@ -53,13 +53,15 @@ export class MyApp {
   }
 
   ionViewDidLoad() {
+
+    console.log('hello')
     
     // Get a FCM token
     this.fcm.getToken()
 
-    this.fcm.listenToNotification().pipe(
+    this.fcm.listenToNotifications().pipe(
       tap(msg => {
-        const toast = this.toastCntrl.create({
+        const toast = this.toastCtrl.create({
           message: msg.body,
           duration: 3000
         })

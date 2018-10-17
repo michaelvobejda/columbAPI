@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "14669114702",
+    "firebase_url": "https://columbapi-431e5.firebaseio.com",
+    "project_id": "columbapi-431e5",
+    "storage_bucket": "columbapi-431e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14669114702:android:ef2203a45953b90d",
+        "android_client_info": {
+          "package_name": "com.angularfirebase.columbAPI"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14669114702-mohnthd596stcm54q8s7mko3o8k04kh0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuYkxYNezBLjbI-BB4Me44ST9wqkSEE2s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

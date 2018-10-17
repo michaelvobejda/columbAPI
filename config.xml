@@ -92,4 +92,5 @@
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.14669114702-rbvht71bpdsthvdl8p76lb4v2v5h6tlu" />
         <variable name="WEB_APPLICATION_CLIENT_ID" value="14669114702-rbvht71bpdsthvdl8p76lb4v2v5h6tlu.apps.googleusercontent.com" />
     </plugin>
+    <plugin name="cordova-plugin-x-toast" spec="^2.7.0" />
 </widget>

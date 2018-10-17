@@ -18,7 +18,7 @@ export class FcmProvider {
     public firebaseNative: Firebase, 
     public afs: AngularFirestore, 
     private platform: Platform) {
-
+      console.log('ayo')
 
   }
 
@@ -43,7 +43,7 @@ export class FcmProvider {
     }
 
     return this.saveTokenToFirestore(token)
-
+ 
 
 
   }
@@ -60,7 +60,7 @@ export class FcmProvider {
     return devicesRef.doc(token).set(docData)
   }
 
-  listenToNotification() {
+  listenToNotifications() {
     return this.firebaseNative.onNotificationOpen()
   }
 
