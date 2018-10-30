@@ -34,7 +34,7 @@ export class LoginPage {
           // this.navCtrl.popToRoot();
           // might try this instead
           this.navCtrl.push(TabsPage);
-        }, 1000);
+        }, 2000);
       })
     .catch(error => console.error('Error storing item', error))
   }

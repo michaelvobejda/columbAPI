@@ -4,29 +4,47 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="food">
 
-  <ion-list>
-      <ion-item>
-        <ion-label>I want a late plate tonight</ion-label>
-        <ion-checkbox [(ngModel)]="needPlate" (ionChange)="plateChanged()"></ion-checkbox>
-      </ion-item>
-  </ion-list>
+    <ion-card>
+
+        <ion-card-header>
+        </ion-card-header>
+        
+        <ion-card-content>
+                <ion-item>
+                    <ion-label>I want a late plate tonight</ion-label>
+                    <ion-checkbox [(ngModel)]="needPlate" (ionChange)="plateChanged()"></ion-checkbox>
+                </ion-item>
+
+        </ion-card-content>
+        
+    </ion-card>
+
   
   <!-- Display late plates -->
-  <ion-title>Late Plates</ion-title>
-  <ion-grid>
-      <ion-row class="text" *ngFor="let plate of plates | async">
-          <ion-col>
-              {{plate.username}}
-          </ion-col>
-          <ion-col>
-              <ion-badge *ngIf="plate.isVegan">Vegan</ion-badge>
-          </ion-col>
-          <ion-col>
-              <ion-badge color="secondary" *ngIf="plate.isGF">Gluten-Free</ion-badge>
-          </ion-col>
-      </ion-row>
-  </ion-grid>
+    <ion-card>
+        <ion-card-header>
+            Late Plates
+        </ion-card-header>
+
+        <ion-card-content>
+            <ion-grid>
+                <ion-row class="text" *ngFor="let plate of plates | async">
+                    <ion-col>
+                        {{plate.username}}
+                    </ion-col>
+                    <ion-col>
+                        <ion-badge *ngIf="plate.isVegan">Vegan</ion-badge>
+                    </ion-col>
+                    <ion-col>
+                        <ion-badge color="secondary" *ngIf="plate.isGF">Gluten-Free</ion-badge>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+
+
 
 </ion-content>
