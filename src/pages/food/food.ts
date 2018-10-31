@@ -13,12 +13,12 @@ import {
   templateUrl: 'food.html'
 })
 export class FoodPage {
-  username:string = 'Michael'
-  isVegan:boolean = true
-  isGF:boolean = true
-  // username:string;
-  // isVegan:boolean;
-  // isGF:boolean;
+  // username:string = 'Michael'
+  // isVegan:boolean = true
+  // isGF:boolean = true
+  username:string;
+  isVegan:boolean;
+  isGF:boolean;
 
   platesRef: AngularFirestoreCollection<any>;
   plates: Observable<any[]>;
