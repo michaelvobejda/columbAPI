@@ -33,16 +33,16 @@ export class MyApp {
 
 
     // Check if logged in
-    this.nativeStorage.getItem('username')
-    .then(
-      username => {
-        console.log('username:', username)
-        this.rootPage = TabsPage
-      },
-      error => this.rootPage = LoginPage
-    )
+    // this.nativeStorage.getItem('username')
+    // .then(
+    //   username => {
+    //     console.log('username:', username)
+    //     this.rootPage = TabsPage
+    //   },
+    //   error => this.rootPage = LoginPage
+    // )
 
-    // this.rootPage = TabsPage
+    this.rootPage = TabsPage
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
